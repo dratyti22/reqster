@@ -10,3 +10,7 @@ repository = "https://github.com/dratyti22/reqster"
 keywords = ["cli", "http", "request"]
 
 [dependencies]
+anyhow = "1.0.91"
+tokio = { version = "1.41.0", features = ["full"] }
+reqwest = { version = "0.12.9", features = ["json", "cookies", "rustls-tls"] }
+console = "0.15.8"
