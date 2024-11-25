@@ -1,6 +1,8 @@
 mod commands;
+mod run;
 
 use crate::commands::cli::Cli;
+use crate::run::run;
 use anyhow::Result;
 use clap::Parser;
 
@@ -8,6 +10,11 @@ use clap::Parser;
 async fn main() -> Result<()> {
     let cli: Cli = Cli::parse();
 
-    println!("{:#?}", cli);
-    Ok(())
+    match run(cli) {
+        Ok(()) => Ok(()),
+        Err(e) => {
+            eprintln!("Error: {}", e);
+            Err(e)
+        }
+    }
 }

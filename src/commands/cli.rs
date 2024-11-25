@@ -7,3 +7,9 @@ pub struct Cli {
     #[arg(short, long, help = "url to which the request is sent")]
     url: String,
 }
+
+impl Cli {
+    pub fn get_url(&self) -> &str {
+        &self.url
+    }
+}
